@@ -11,8 +11,8 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/cart" element={<Cart />} />
+        <Route path="/*" element={<PageNotFound />} />
         <Route path="/" element={<Home />} />
-        <Route path="/*" element={<PageNotFound/>} />
       </Routes>
     </>
   );
