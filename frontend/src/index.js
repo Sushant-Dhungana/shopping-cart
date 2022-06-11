@@ -6,7 +6,8 @@ import { BrowserRouter } from 'react-router-dom';
 
 import {configureStore} from "@reduxjs/toolkit";
 import {Provider} from "react-redux";
-import productsReducer from './features/productSlice';
+import productsReducer from './features/productsSlice';
+import { productsFetch } from './features/productsSlice';
 
 
 
@@ -15,6 +16,9 @@ const store = configureStore({
     products: productsReducer,
   }
 });
+
+
+store.dispatch(productsFetch())
 
 
 
