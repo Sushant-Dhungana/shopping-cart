@@ -18,7 +18,7 @@ const products = [
   {
     id: 3,
     name: "Royal enfield",
-    desc: "classic at its own",
+    desc: "classic at its own base",
     price: "NPR 699999",
     image:
       "https://res.cloudinary.com/daekpsyr5/image/upload/v1654915582/shopping%20cart/royal_enfield_jvuovh.jpg",
