@@ -3,7 +3,7 @@ const products = [
     id: 1,
     name: "Crf",
     desc: "best in the segment",
-    price: "NPR 1000000",
+    price: " 1000000",
     image:
       "https://res.cloudinary.com/daekpsyr5/image/upload/v1654915587/shopping%20cart/crf_eum6c2.jpg",
   },
@@ -11,7 +11,7 @@ const products = [
     id: 2,
     name: " KTM Duke",
     desc: "beast in the segment",
-    price: "NPR 700000",
+    price: " 700000",
     image:
       "https://res.cloudinary.com/daekpsyr5/image/upload/v1654915584/shopping%20cart/duke_zreyf4.jpg",
   },
@@ -19,7 +19,7 @@ const products = [
     id: 3,
     name: "Royal enfield",
     desc: "classic at its own base",
-    price: "NPR 699999",
+    price: " 699999",
     image:
       "https://res.cloudinary.com/daekpsyr5/image/upload/v1654915582/shopping%20cart/royal_enfield_jvuovh.jpg",
   },
