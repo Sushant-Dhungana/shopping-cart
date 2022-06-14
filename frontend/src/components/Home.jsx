@@ -1,6 +1,7 @@
 // import { createAsyncThunk } from '@reduxjs/toolkit';
 import React from "react";
 import { useDispatch } from "react-redux";
+import {useNavigate} from 'react-router-dom';
 // import { useSelector } from "react-redux";
 import { useGetAllProductsQuery } from "../features/productsApi";
 import { addToCart } from "../features/cartSlice";
@@ -9,9 +10,13 @@ export const Home = () => {
   // const [items,status] = useSelector(state => state.products); way of getting data in createAsyncThunk
   const { data, error, isLoading } = useGetAllProductsQuery();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const handleAddToCart = (product)=>{
       dispatch(addToCart(product));
+      navigate("/cart");
   };
+
+  
 
   return (
     <div className="home-container">
