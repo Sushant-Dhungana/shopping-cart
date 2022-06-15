@@ -6,7 +6,7 @@ const initialState = {
     : [], //CHECKS For CART ITEMS IN LOCALSTORAGE IF WE HAVE ITEM THIS WILL HAVE SAME STATE ELSE CHANGES STATE
   cartTotalQuantity: 0,
   cartTotalAmount: 0,
-};
+}; 
 
 const cartSlice = createSlice({
   name: "cart",
