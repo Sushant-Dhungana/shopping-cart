@@ -1,9 +1,14 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { removeFromCart } from "../features/cartSlice";
 
 export const Cart = () => {
   const cart = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+  const handleRemoveFromCart = (cartItem) => {
+      dispatch(removeFromCart(cartItem));
+  };
   return (
     <div className="cart-container">
       <h2>Added Cart</h2>
@@ -45,7 +50,7 @@ export const Cart = () => {
                   <div>
                     <h3>{cartItem.name}</h3>
                     <p>{cartItem.desc}</p>
-                    <button>Remove</button>
+                    <button onClick={()=>handleRemoveFromCart(cartItem)}>Remove</button>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="20"
