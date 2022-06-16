@@ -6,7 +6,7 @@ const initialState = {
     : [], //CHECKS For CART ITEMS IN LOCALSTORAGE IF WE HAVE ITEM THIS WILL HAVE SAME STATE ELSE CHANGES STATE
   cartTotalQuantity: 0,
   cartTotalAmount: 0,
-}; 
+};
 
 const cartSlice = createSlice({
   name: "cart",
@@ -33,42 +33,49 @@ const cartSlice = createSlice({
 
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
-    removeFromCart(state,action){
-     const nextCartItems =  state.cartItems.filter(
-        cartItem => cartItem.id !== action.payload.id //return those items that are not equal to action.payload.id
-      )
+    removeFromCart(state, action) {
+      const nextCartItems = state.cartItems.filter(
+        (cartItem) => cartItem.id !== action.payload.id //return those items that are not equal to action.payload.id
+      );
       state.cartItems = nextCartItems;
-      localStorage.setItem("cartItems", JSON.stringify(state.cartItems))
+      localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
 
       toast.error(`${action.payload.name} Removed from cart`, {
         position: "bottom-left",
       });
     },
-    decreaseCart(state,action){
+    decreaseCart(state, action) {
       const itemIndex = state.cartItems.findIndex(
-        cartItem => cartItem.id === action.payload.id //checks id
+        (cartItem) => cartItem.id === action.payload.id //checks id
       );
-      if(state.cartItems[itemIndex].cartQuantity > 1){
-        state.cartItems[itemIndex].cartQuantity -=1
+      if (state.cartItems[itemIndex].cartQuantity > 1) {
+        state.cartItems[itemIndex].cartQuantity -= 1;
         toast.info(`Decreased ${action.payload.name} from cart`, {
           position: "bottom-left",
         });
-      } else if (state.cartItems[itemIndex].cartQuantity === 1){
-        const nextCartItems =  state.cartItems.filter(
-          cartItem => cartItem.id !== action.payload.id //return those items that are not equal to action.payload.id
-        )
+      } else if (state.cartItems[itemIndex].cartQuantity === 1) {
+        const nextCartItems = state.cartItems.filter(
+          (cartItem) => cartItem.id !== action.payload.id //return those items that are not equal to action.payload.id
+        );
         state.cartItems = nextCartItems;
-  
+
         toast.error(`${action.payload.name} Removed from cart`, {
           position: "bottom-left",
         });
       }
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
-    }
-    
+    },
+    clearCart(state, action) {
+      state.cartItems = [];
+      toast.error("Cart clear", {
+        position: "bottom-left",
+      });
+      localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
+    },
   },
 });
 
-export const { addToCart, removeFromCart, decreaseCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, decreaseCart, clearCart } =
+  cartSlice.actions;
 
 export default cartSlice.reducer;
