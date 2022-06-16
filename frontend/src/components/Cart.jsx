@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector,useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { removeFromCart, decreaseCart } from "../features/cartSlice";
+import { removeFromCart, decreaseCart, addToCart } from "../features/cartSlice";
 
 export const Cart = () => {
   const cart = useSelector((state) => state.cart);
@@ -11,6 +11,9 @@ export const Cart = () => {
   };
   const handleDecreaseCart = (cartItem) => {
     dispatch (decreaseCart(cartItem));
+  }
+  const handleIncreaseCart = (cartItem) => {
+    dispatch(addToCart(cartItem));
   }
   return (
     <div className="cart-container">
@@ -74,7 +77,7 @@ export const Cart = () => {
                 <div className="cart-product-quantity">
                   <button onClick={()=>handleDecreaseCart(cartItem)}>-</button>
                   <div className="count">{cartItem.cartQuantity}</div>
-                  <button>+</button>
+                  <button onClick={()=>handleIncreaseCart(cartItem)}>+</button>
                 </div>
                 <div className="cart-product-total-price">
                   Npr {cartItem.price * cartItem.cartQuantity}
