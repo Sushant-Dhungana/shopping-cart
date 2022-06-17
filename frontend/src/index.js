@@ -9,7 +9,7 @@ import {Provider} from "react-redux";
 import productsReducer from './features/productsSlice';
 import { productsFetch } from './features/productsSlice';
 import { productsApi } from './features/productsApi';
-import cartReducer from './features/cartSlice';
+import cartReducer, { getTotals } from './features/cartSlice';
 
 
 
@@ -26,7 +26,8 @@ const store = configureStore({
 });
 
 
-store.dispatch(productsFetch())
+store.dispatch(productsFetch());
+store.dispatch(getTotals());
 
 
 
