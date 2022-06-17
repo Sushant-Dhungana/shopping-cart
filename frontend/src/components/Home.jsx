@@ -24,7 +24,7 @@ export const Home = () => {
         <p>An error occured{error.data}</p>
       ) : (
         <>
-          <h2>New Arrivals</h2>
+          <h2>Demo Datas</h2>
           <div className="products">
             {data?.map((product) => (
               <div key={product.id} className="product">
@@ -32,7 +32,7 @@ export const Home = () => {
                 <img src={product.image} alt={product.name} />
                 <div className="details">
                   <span>{product.desc}</span>
-                  <span>{product.price}</span>
+                  <span>Npr {product.price}</span>
                 </div>
                 <button onClick={() => handleAddToCart(product)}>
                   Add to cart

@@ -50,7 +50,7 @@ export const Cart = () => {
         <div>
           <div className="titles">
             <h3 className="product-title"> Product</h3>
-            <h3 className="price">Price</h3>
+            <h3 className="price">Price (in Npr)</h3>
             <h3 className="Quantity">Quantity</h3>
             <h3 className="total">Total</h3>
           </div>
@@ -98,8 +98,7 @@ export const Cart = () => {
                 <span>Subtotal</span>
                 <span className="amount">${cart.cartTotalAmount}</span>
               </div>
-              <p>Taxes and shipping calculated at checkout</p>
-              <button>Check out</button>
+              <button>Know More</button>
               <div className="continue-shopping">
                 <Link to="/">
                   <svg

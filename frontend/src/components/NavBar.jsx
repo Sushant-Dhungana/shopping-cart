@@ -7,7 +7,7 @@ export const NavBar = () => {
   return (
     <nav className="nav-bar">
         <Link to="/">
-        <h2>Dhungana</h2>
+        <h2>Demo Cart</h2>
         </Link>
         <Link to="/cart">
         <div className="nav-bag">
